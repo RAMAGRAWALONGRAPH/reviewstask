@@ -11,7 +11,7 @@ app.use(cors());
 
 let fetchedReviews = [];
 let responseSent = false; // flag to check if the response has been sent
-app.post("/screenshot", async (req, res) => {
+app.post("/fetchReviews", async (req, res) => {
   //   const { lastReviewsCount } = req.body;
   let lastReviewsCount = 0;
   // const { location } = req.body;

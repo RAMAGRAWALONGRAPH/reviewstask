@@ -16,7 +16,7 @@ function App() {
     // }
     setReviewsData([]);
     setLastReviewCount(0);
-    const response = await fetch("http://localhost:5000/screenshot", {
+    const response = await fetch("http://localhost:5000/fetchReviews", {
       method: "post",
       headers: {
         "Content-Type": "application/json",
@@ -31,7 +31,7 @@ function App() {
   };
 
   const handleLoadMore = async () => {
-    const response = await fetch("http://localhost:5000/screenshot", {
+    const response = await fetch("http://localhost:5000/fetchReviews", {
       method: "post",
       headers: {
         "Content-Type": "application/json",
@@ -98,80 +98,3 @@ function App() {
 }
 
 export default App;
-
-// import "./App.css";
-// import { useState} from "react";
-
-// import GooglePlacesAutocomplete from "react-google-places-autocomplete";
-
-// function App() {
-//   const [location, setLocation] = useState(null);
-//   const [reviewsData, setReviewsData] = useState([]);
-//   const [lastReviewCount, setLastReviewCount] = useState(0)
-
-//   const handleSubmit = async (e) => {
-//     e.preventDefault();
-//     if (!location) {
-//       console.error("Location is missing");
-//       return;
-//     }
-//     const response = await fetch("http://localhost:5000/screenshot", {
-//       method: "post",
-//       headers: {
-//         "Content-Type": "application/json",
-//       },
-//       body: JSON.stringify({ location: location.label }),
-//     });
-//     const data = await response.json();
-//     console.log(data)
-//     setLocation(null);
-
-//   };
-//   return (
-//     <>
-//       <div>
-//         <label>Please fill your location</label>
-
-//         <div>
-//           <div>
-//             <GooglePlacesAutocomplete
-//               apiKey="AIzaSyBOCNiSor1-8OrLS4eRbyreriFcI__Pg64"
-//               selectProps={{
-//                 location,
-//                 onChange: setLocation,
-//                 placeholder: "Select your address",
-//               }}
-//               location={location ? location.label : ""}
-//             />
-//           </div>
-//           <p>Selected Location: {location ? location.label : ""}</p>
-//           <button className="button" onClick={handleSubmit}>
-//             Search
-//           </button>
-//         </div>
-//         {/* <table>
-//           <thead>
-//             <tr>
-//               <th>Name</th>
-//               <th>Age</th>
-//             </tr>
-//           </thead>
-//           <tbody>
-//             {userData.map((user) => (
-//               <tr key={user._id}>
-//                 <td>{user.Name}</td>
-//                 <td>{user.Age}</td>
-//                 <td onClick={() => handleEdit(user._id)}>Edit</td>
-//                 <td className="delete" onClick={() => handleDelete(user._id)}>
-//                   Delete
-//                 </td>
-//               </tr>
-//             ))}
-//           </tbody>
-//         </table> */}
-//       </div>
-//     </>
-//   );
-// }
-
-// export default App;
